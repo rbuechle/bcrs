@@ -3,7 +3,7 @@
 ; Title:  security-question-api.js
 ; Author: Professor Krasso
 ; Date:  12 January 2021
-; Modarators: Becca Buechle
+; Modarators: Becca Buechle, Rhonda Rivas, Rochelle Markham, King Major 
 ; Description: CRUD APIs for Security Questions
 ;===========================================
 */
