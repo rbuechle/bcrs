@@ -3,7 +3,7 @@
 ; Title:  app.js
 ; Author: Professor Krasso
 ; Date: 1-17-21
-; Modified By: Rochelle Markham
+; Modified by: Becca Buechle, Rhonda Rivas, Rochelle Markham, King Major
 ; Description: app.js file for BCRS
 ;===========================================
 */
