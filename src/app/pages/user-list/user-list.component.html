@@ -1,0 +1,38 @@
+<!--User-List Page: Lists all users and user details-->
+
+<div fxLayout = "column">
+  <h1 class = "header">Manage Users</h1>
+
+  <div>
+    <div *ngIf = "users">
+      <mat-card *ngFor = "let User of users" class = "mat-elevation-z8 user-card">
+        <mat-card-title>{{User.firstname + " " + User.lastname}}
+          <mat-card-content>
+            <button mat-icon-button routerLink = "/user-details">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <img class = "user-icon" src="../../../assets/user.png">
+            <mat-card-subtitle class = "ID">User Id: {{User.userId}}</mat-card-subtitle>
+            <div class = "info1">
+              <p>Username: {{User.username}}</p>
+              <p>Password: **********</p>
+              <p>Phone Number: {{User.phoneNumber}}</p>
+              <p>Address: {{User.address}}</p>
+            </div>
+
+            <div class = "info2">
+              <p>Email: {{User.email}}</p>
+              <p>Role: {{User.role}}</p>
+              <p>Date Created: {{User.date_created}}</p>
+              <p>Date Modified: {{User.date_modified}}</p>
+            </div>
+            <p class = "Security">Security Questions: {{User.securityQuestions}}</p>
+
+
+          </mat-card-content>
+        </mat-card-title>
+      </mat-card>
+    </div>
+  </div>
+</div>
