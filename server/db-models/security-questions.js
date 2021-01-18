@@ -16,3 +16,4 @@ let securityQuestionSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model('SecurityQuestion', securityQuestionSchema);
+

@@ -13,13 +13,32 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+<<<<<<< HEAD
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
+import { MatCardModule } from '@angular/material/card';
+import { SecurityQuestionCreateComponent } from './security-question-create/security-question-create.component';
+import { SecurityQuestionDetailsComponent } from './security-question-details/security-question-details.component';
+import { SecurityQuestionListComponent } from './security-question-list/security-question-list.component';
+=======
+import { SigninComponent } from './pages/signin/signin.component';
+>>>>>>> 6eb37b0fa72a9d571beeba7ed7fed8bae70082e3
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     BaseLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+<<<<<<< HEAD
+    UserDetailsComponent,
+    UserListComponent,
+    SecurityQuestionCreateComponent,
+    SecurityQuestionDetailsComponent,
+    SecurityQuestionListComponent
+=======
+    SigninComponent
+>>>>>>> 6eb37b0fa72a9d571beeba7ed7fed8bae70082e3
   ],
   imports: [
     BrowserModule,
@@ -32,6 +51,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
