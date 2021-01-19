@@ -2,8 +2,7 @@
 ============================================
 ; Title:  security-question-details.component.ts
 ; Author: Professor Krasso
-; Date:   19 January 2021
-; Modified by: Becca Buechle, Rhonda Rivas, Rochelle Markham, King Major
+; Date:   3 December 2019
 ; Description: Angular component for viewing a security question
 ;===========================================
 */

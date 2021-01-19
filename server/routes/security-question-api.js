@@ -1,13 +1,3 @@
-/*
-============================================
-; Title:  user-api.js
-; Author: Professor Krasso
-; Date:  1-19-21
-; Modified by: Becca Buechle, Rhonda Rivas, Rochelle Markham, King Major
-; Description: CRUD APIs for Users
-;===========================================
-*/
-
 
 // require statements
 const express = require('express');
@@ -21,7 +11,6 @@ const router = express.Router();
  */
 router.get('/', function (req, res, next) {
   SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function(err, securityQuestions) {
-    //.where = disable equals false  //.exec execute the query
     if (err) {
       console.log(err);
       return next(err);
