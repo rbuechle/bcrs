@@ -1,3 +1,12 @@
+/*
+============================================
+; Title:  app.js
+; Author: Professor Krasso
+: Modified by: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
+; Date:   January 16, 2021
+; Description: Node server for API integrations
+;===========================================
+*/
 /**
  * Require statements
  */
@@ -43,7 +52,7 @@ mongoose.connect(conn, {
  * API(s) go here...
  */
   //security question API
-  app.use('/api/security-questions', SecurityQuestionApi);
+  //app.use('/api/security-questions', SecurityQuestionApi);
 
 /**
  * Create and start server
