@@ -2,8 +2,9 @@
 ============================================
 ; Title:  signin.component.ts
 ; Author: Professor Krasso
-; Date:   3 December 2019
-; Description: Angular component for signing users into the application
+; Modified by: King Major
+; Date:   16 January 2021
+; Description: This is the signin component view for the application
 ;===========================================
 */
 

@@ -1,9 +1,10 @@
 /*
 ============================================
-; Title:  session.guard.ts
+; Title: auth.guards.ts
 ; Author: Professor Krasso
-; Date:   3 December 2019
-; Description: Session guard
+; Date: 16 January 2021
+; Modified By: King Major
+; Description: Using Angular auth guard to restrict application access
 ;===========================================
 */
 
