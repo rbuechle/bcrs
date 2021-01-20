@@ -2,7 +2,8 @@
 ============================================
 ; Title:  session-api.js
 ; Author: Professor Krasso
-; Date:   3 December 2019
+; Date:   16 January 2021
+; Modified By: King Major
 ; Description: APIs for managing Session Users
 ;===========================================
 */
