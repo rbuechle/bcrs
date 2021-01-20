@@ -7,13 +7,13 @@ const router = express.Router();
  * FindAll
  */
 router.get('/', function (req, res, next) {
-  SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function(err, securityQuestions) {
+  SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function(err, SecurityQuestion) {
     if (err) {
       console.log(err);
       return next(err);
     } else {
-      console.log(securityQuestions);
-      res.json(securityQuestions);
+      console.log(SecurityQuestion);
+      res.json(SecurityQuestion);
     }
   })
 });
