@@ -1,12 +1,13 @@
 /*
 ============================================
-; Title:  signin.component.ts
+; Title:  security-question-list.component.ts
 ; Author: Professor Krasso
-; Modified by: King Major
-; Date:   16 January 2021
+; Date:   17 January 2021
+; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
 ; Description: This is the signin component view for the application
 ;===========================================
 */
+
 
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';

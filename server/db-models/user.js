@@ -2,7 +2,7 @@
 ============================================
 ; Title:  user.js
 ; Author: Professor Krasso
-; Modified by: Rhonda Rivas
+; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
 ; Date:   January 13, 2021
 ; Description: Model for MongoDB Users collection
 ;===========================================

@@ -1,3 +1,12 @@
+/*
+============================================
+; Title:  security-question-list.component.ts
+; Author: Professor Krasso
+; Date:   17 January 2021
+; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
+; Description: user-list component 
+;===========================================
+*/
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserListComponent } from './user-list.component';

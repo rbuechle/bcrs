@@ -1,9 +1,9 @@
 /*
 ============================================
-; Title: auth.guards.ts
+; Title:  security-question-list.component.ts
 ; Author: Professor Krasso
-; Date: 16 January 2021
-; Modified By: King Major
+; Date:   17 January 2021
+; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
 ; Description: Using Angular auth guard to restrict application access
 ;===========================================
 */
