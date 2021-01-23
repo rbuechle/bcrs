@@ -1,5 +1,6 @@
 /*
 ============================================
+<<<<<<< Updated upstream
 ; Title:  security-question-api.js
 ; Author: Professor Krasso
 ; Date:  12 January 2021
@@ -8,6 +9,15 @@
 ;===========================================
 */
 
+=======
+; Title:  security-question.js
+; Author: Professor Krasso
+: Modified by: Rhonda Rivas
+; Date:   January 22, 2021
+; Description: Model for MongoDB SecurityQuestions collection
+===========================================
+*/
+>>>>>>> Stashed changes
 // require statements
 const { RoutesRecognized } = require('@angular/router');
 const express = require('express');
@@ -117,4 +127,33 @@ router.get('/', function (req, res, next) {
     });
   });
 
+<<<<<<< Updated upstream
   module.exports = router;
+=======
+/**
+ * API - Find Security Questions by Id's
+ * FindSecurityQuestionsByIds
+ */
+router.post('/find-by-ids', function (req, res, next) {
+  const question1 = req.body.question1;
+  const question2 = req.body.question2;
+  const question3 = req.body.question3;
+
+  SecurityQuestion.find({
+    $or: [
+      {'_id': question1},
+      {'_id': question2},
+      {'_id': question3}
+    ]
+  }).exec(function (err, securityQuestions) {
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(securityQuestions);
+      res.json(securityQuestions);
+    }
+  })
+});
+module.exports = router;
+>>>>>>> Stashed changes
