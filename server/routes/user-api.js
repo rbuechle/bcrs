@@ -3,7 +3,7 @@
 ; Title:  user-api.js
 ; Author: Professor Krasso
 ; Date:  1-17-21
-; Modified by: Rochelle Markham
+; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
 ; Description: CRUD APIs for Users
 ;===========================================
 */

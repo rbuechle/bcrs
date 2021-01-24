@@ -1,3 +1,12 @@
+/*
+============================================
+; Title:  security-questions.js
+; Author: Professor Krasso
+; Date:   17 January 2021
+; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
+; Description: Model for MongoDB SecurityQuestions collection
+;===========================================
+*/
 
 // require statements
 const express = require('express');
