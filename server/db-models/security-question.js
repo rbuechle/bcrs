@@ -10,6 +10,7 @@
 
 const mongoose = require('mongoose');
 //security questions go here
+
 let securityQuestionSchema = mongoose.Schema({
   text:       {type: String},
   isDisabled: {type: Boolean, default: false}

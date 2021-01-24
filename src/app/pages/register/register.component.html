@@ -1,0 +1,70 @@
+<div class = "register">
+  <mat-card>
+    <mat-card-title>User Registration</mat-card-title>
+
+      <form>
+        <div class = "form">
+          <mat-form-field appearance = "outline">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder = "First Name">
+          </mat-form-field>
+
+          <mat-form-field appearance = "outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder = "Last Name">
+          </mat-form-field>
+
+          <mat-form-field appearance = "outline">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder = "Address">
+          </mat-form-field>
+
+          <mat-form-field appearance = "outline">
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder = "Phone Number">
+          </mat-form-field>
+
+          <mat-form-field appearance = "outline">
+            <mat-label>E-mail</mat-label>
+            <input matInput placeholder = "E-mail">
+          </mat-form-field>
+
+          <mat-form-field appearance = "outline">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder = "Username">
+          </mat-form-field>
+
+          <mat-form-field appearance = "outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder = "Password">
+          </mat-form-field>
+
+          <mat-form-field appearance = "outline">
+            <mat-label>Verify Password</mat-label>
+            <input matInput placeholder = "Verify Password">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance = "outline">
+            <mat-label>Select Security Question</mat-label>
+            <mat-select class = "sec-questions">
+              <mat-option value = "What is your mother's maiden name?">What is your mother's maiden name?</mat-option>
+              <mat-option value = "What is your father's middle name?">What is your father's middle name?</mat-option>
+              <mat-option value = "In what city did you meet your significant other?">In what city did you meet your significant other?</mat-option>
+              <mat-option value = "What is the name of your childhood best friend?">What is the name of your childhood best friend?</mat-option>
+              <mat-option value = "What street did you live on in 3rd grade?">What street did you live on in 3rd grade?</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance = "outline">
+            <mat-label>Answer</mat-label>
+            <input class = "answer" matInput placeholder = "Answer">
+          </mat-form-field>
+
+        </div>
+
+      </form>
+      <button class = "submit" mat-button>Submit</button>
+  </mat-card>
+</div>

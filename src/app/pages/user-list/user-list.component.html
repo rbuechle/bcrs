@@ -5,7 +5,7 @@
 
   <div>
     <div *ngIf = "users">
-      <mat-card *ngFor = "let User of users" class = "mat-elevation-z8 user-card">
+      <mat-card *ngFor = "let User of users" class = "mat-elevation-z12 user-card">
         <mat-card-title>{{User.firstname + " " + User.lastname}}
           <mat-card-content>
             <button mat-icon-button routerLink = "/user-details">
@@ -33,6 +33,7 @@
           </mat-card-content>
         </mat-card-title>
       </mat-card>
+      <br/><br/>
     </div>
   </div>
 </div>
