@@ -7,6 +7,7 @@
 ; Description: Node server for API integrations
 ;===========================================
 */
+
 /**
  * Require statements
  */
@@ -16,6 +17,13 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
+
+/**
+ * Routing files
+ */
+const UserApi = require('./routes/user-api');
+const SessionApi = require('./routes/session-api');
+const SecurityQuestionApi = require('./routes/security-question-api');
 
 /**
  * App configurations
@@ -30,10 +38,10 @@ app.use('/', express.static(path.join(__dirname, '../dist/bcrs')));
 /**
  * Variables
  */
-const port = 3000; // server port
+const port = process.env.PORT || 3000; // server port
 
 // TODO: This line will need to be replaced with your actual database connection string
-const conn = 'mongodb+srv://admin:admin@bobs-computer-repair.7wtf8.mongodb.net/bobs-computer-repair?retryWrites=true&w=majority';
+const conn = 'mongodb+srv://admin:admin@bobs-computer-repair.7wtf8.mongodb.net/users?retryWrites=true&w=majority';
 
 /**
  * Database connection
@@ -41,22 +49,23 @@ const conn = 'mongodb+srv://admin:admin@bobs-computer-repair.7wtf8.mongodb.net/b
 mongoose.connect(conn, {
   promiseLibrary: require('bluebird'),
   useUnifiedTopology: true,
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useCreateIndex: true
 }).then(() => {
   console.debug(`Connection to the database instance was successful`);
 }).catch(err => {
   console.log(`MongoDB Error: ${err.message}`)
 }); // end mongoose connection
+/**
+ * API(s)
+ */
+app.use('/api/users', UserApi);
+app.use('/api/session', SessionApi);
+app.use('/api/security-questions', SecurityQuestionApi);
 
 /**
- * API(s) go here...
- */
-  //security question API
-  //app.use('/api/security-questions', SecurityQuestionApi);
-
-/**
- * Create and start server
- */
+* Create and start server
+*/
 http.createServer(app).listen(port, function() {
-  console.log(`Application started and listening on port: ${port}`)
+ console.log(`Application started and listening on port: ${port}`)
 }); // end http create server function
