@@ -7,14 +7,17 @@
 ; Description: CRUD APIs for Users
 ;===========================================
 */
+
 const express = require('express');
 const User = require('../db-models/user');
 const router = express.Router();
 const bcrypt = require('bcrypt');
+
 /*
  API: FindUserById API
  Returns: User File
 */
+
 router.get('/api/users/:userId', function(req, res, next) {
   //finds one user using the Id provided and returns the user file
   User.findOne({'userId': req.params.userId},
@@ -28,6 +31,7 @@ router.get('/api/users/:userId', function(req, res, next) {
     }
   })
 });
+
 /**
  * API: FindAllUsers API
  * Returns: Array of users
@@ -44,22 +48,6 @@ router.get('/', function(req, res, next){
      }
    })
  })
-
- /**
- * API: FindById  API
- * Returns: Array of users by IF
- */
-router.get('/:id', function (req, res, next) {
-  User.findOne({'_id': req.params.id}, function (err, user) {
-    if (err) {
-      console.log(err);
-      return next(err);
-    } else {
-      console.log(user);
-      res.json(user);
-    }
-  })
-});
 
 /**
  * API: CreateUser API
@@ -95,6 +83,7 @@ router.post('/api/users', function(req, res){
     }
   });
 });
+
 /**
  * API: Update User
  * Returns: Updated User File
@@ -135,6 +124,7 @@ router.put('/api/users/:userId', function(req, res, next){
     }
   })
 });
+
 /**
  * API: Delete User
  * Return: Updated User File
@@ -175,6 +165,7 @@ router.put('/api/users/:userId', function(req, res, next){
     }
   })
 });
+
 /**
  * API -Find selected security questions
  * FindSelectedSecurityQuestions
@@ -190,5 +181,7 @@ router.get('/:username/security-questions', function (req, res, next) {
     }
   })
 });
+
 //exports the APIs to the router module
 module.exports = router;
+

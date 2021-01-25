@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-=======
 /*
 ============================================
 ; Title:  user-api.js
@@ -18,23 +12,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
 import { AppRoutes } from './app.routing';
-import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
->>>>>>> Stashed changes
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './pages/home/home.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { UserListComponent } from './pages/user-list/user-list.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { SecurityQuestionCreateComponent } from './pages/security-question-create/security-question-create.component';
+import { SecurityQuestionDetailsComponent } from './pages/security-question-details/security-question-details.component';
+import { SecurityQuestionListComponent } from './pages/security-question-list/security-question-list.component';
+import { SecurityQuestionDeleteDialogComponent } from './dialogs/security-question-delete-dialog/security-question-delete-dialog.component';
+import { UserDeleteDialogComponent } from './dialogs/user-delete-dialog/user-delete-dialog.component';
 import { SigninComponent } from './pages/signin/signin.component';
-<<<<<<< Updated upstream
-=======
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -43,18 +39,25 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import {ErrorInterceptor} from './shared/interceptors/error.interceptor';
+import { RegisterComponent } from './pages/register/register.component';
+import { VerifyUsernameFormComponent } from './pages/verify-username-form/verify-username-form.component';
+import { VerifySecurityQuestionsFormComponent } from './pages/verify-security-questions-form/verify-security-questions-form.component';
+import { ResetPasswordFormComponent } from './pages/reset-password-form/reset-password-form.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSelectModule } from '@angular/material/select';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatListModule } from '@angular/material/list';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ErrorComponent } from './pages/error/error.component';
->>>>>>> Stashed changes
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     BaseLayoutComponent,
     AuthLayoutComponent,
-<<<<<<< Updated upstream
-    SigninComponent
-=======
     HomeComponent,
     UserListComponent,
     UserDetailsComponent,
@@ -64,29 +67,36 @@ import { ErrorComponent } from './pages/error/error.component';
     SecurityQuestionDeleteDialogComponent,
     UserDeleteDialogComponent,
     SigninComponent,
-    ErrorComponent
-    
->>>>>>> Stashed changes
+    RegisterComponent,
+    VerifyUsernameFormComponent,
+    VerifySecurityQuestionsFormComponent,
+    ResetPasswordFormComponent,
+    NotFoundComponent,
+    ErrorComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled'}),
     FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-<<<<<<< Updated upstream
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-=======
     MatMenuModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
     MatTableModule,
+    MatDividerModule,
+    MatSelectModule,
+    MatStepperModule,
+    MatListModule
   ],
   providers: [
     CookieService,
@@ -95,9 +105,8 @@ import { ErrorComponent } from './pages/error/error.component';
   entryComponents: [
     UserDeleteDialogComponent,
     SecurityQuestionDeleteDialogComponent
->>>>>>> Stashed changes
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

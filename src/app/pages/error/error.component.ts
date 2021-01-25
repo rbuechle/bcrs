@@ -4,7 +4,7 @@
 ; Author: Professor Krasso
 ; Date:  1-22-21
 ; Modified by: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
-; Description: error component
+; Description: 500 error page
 ;===========================================
 */
 

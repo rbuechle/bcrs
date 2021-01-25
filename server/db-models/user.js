@@ -2,7 +2,7 @@
 ============================================
 ; Title:  user.js
 ; Author: Professor Krasso
-; Modified by: Rhonda Rivas
+; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
 ; Date:   January 13, 2021
 ; Description: Model for MongoDB Users collection
 ;===========================================
@@ -10,15 +10,16 @@
 
 //this section is the requirements for mongoose and security question schema
 const mongoose = require('mongoose');
-const securityQuestions = require('securityQuestions')
 
 //security questions go here
 let securityQuestions = mongoose.Schema({
-    questionId:   {type: String},
-    answer:       {type: String}
-  });
+  questionId:   {type: String},
+  answer:       {type: String}
+});
+
 //set up user schema
 let userSchema = mongoose.Schema({
+  userId: {type: String, required: true, unique: true},
   username: {type: String, required: true, unique: true, dropDups: true},
   password: {type: String, required: true},
   firstname: {type: String},

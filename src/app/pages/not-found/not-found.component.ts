@@ -2,7 +2,8 @@
 ============================================
 ; Title:  not-found.component.ts
 ; Author: Professor Krasso
-; Date:   3 December 2019
+; Date:  1-22-21
+; Modified by: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
 ; Description: 404 error page
 ;===========================================
 */
