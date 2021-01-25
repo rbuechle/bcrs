@@ -4,6 +4,7 @@
         "Krasso",
         "firstname",
         "lastname",
-        "nodebucket"
+        "nodebucket",
+        "sessionuser"
     ]
 }

@@ -37,6 +37,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
+import { AboutComponent } from './pages/about/about.component'
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { MatTableModule } from '@angular/material/table';
     SecurityQuestionListComponent,
     SecurityQuestionDeleteDialogComponent,
     UserDeleteDialogComponent,
-    SigninComponent
+    SigninComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

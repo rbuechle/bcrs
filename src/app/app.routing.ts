@@ -18,6 +18,7 @@ import {SecurityQuestionDetailsComponent} from './pages/security-question-detail
 import {SecurityQuestionCreateComponent} from './pages/security-question-create/security-question-create.component';
 import {AuthLayoutComponent} from './shared/auth-layout/auth-layout.component';
 import {SigninComponent} from './pages/signin/signin.component';
+import { AboutComponent } from './pages/about/about.component';
 
 export const AppRoutes: Routes = [
   {
@@ -52,6 +53,11 @@ export const AppRoutes: Routes = [
       {
         path: 'security-questions/create/new',
         component: SecurityQuestionCreateComponent,
+        canActivate: [SessionGuard]
+      },
+      {
+        path: 'about',
+        component: AboutComponent,
         canActivate: [SessionGuard]
       },
     ]
