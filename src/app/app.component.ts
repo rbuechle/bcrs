@@ -1,3 +1,13 @@
+/*
+============================================
+; Title:  security-question-list.component.ts
+; Author: Professor Krasso
+; Date:   17 January 2021
+; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
+; Description: app.component 
+;===========================================
+*/
+
 import { Component } from '@angular/core';
 
 @Component({
