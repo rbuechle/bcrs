@@ -1,40 +1,75 @@
-.logo {
-    margin-left: 75px;
-    font-size: 24px;
-    font-weight: lighter;;
-  }
-  
-  .navbar-container {
-    padding: 5px;
-  }
-  
-  .navbar-link {
-    font-size: 24px;
-    font-weight: lighter;
-  }
-  
+.logoImg{
+  width: 150px;
+  height: 150px;
+  float: left;
+  background-color: rgb(64, 121, 140);
+  padding-top: 15px;
+}
+
+.title{
+  font-size: 36px;
+  margin-left: 80px;
+  padding-top: 40px;
+  color: white;
+  letter-spacing: 3px;
+  padding-bottom: 40px;
+}
+
+.header{
+  width: 101%;
+  height: 175px;
+  background-color: rgb(64, 121, 140);
+  margin-left: -10px;
+  margin-top: -15px;
+}
+
+.home, .about, .contact, .signin{
+  margin-top: 75px;
+  margin-left: 20px;
+  padding-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.home {
+  padding-left: 175%;
+}
+
+.manage{
+  padding-left: 30px;
+  -top: 50px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
   .main-content {
     padding-left: 30px;
   }
-  
-  .footer {
+
+.footer {
     bottom: 0;
-    position: absolute;
+    position: fixed;
     width: 100%;
-  }
-  
+    background-color: rgb(64, 121, 140) !important;
+    height: 60px;
+    margin-left: -10px;
+    margin-bottom: -15px;
+    }
+
   .footer-content {
     font-size: 16px;
-    font-weight: lighter;
     padding-left: 100px;
     letter-spacing: 3px;
+    color: white;
   }
-  
+
   .bu-link {
     text-decoration: none;
+    color: white;
   }
-  
+
   .bu-link:hover {
     text-decoration: underline;
   }
-  

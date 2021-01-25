@@ -1,22 +1,21 @@
 /*
 ============================================
-; Title:  security-question-list.component.ts
+; Title:  about.component.ts
 ; Author: Professor Krasso
 ; Date:   17 January 2021
 ; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
-; Description: auth-layout component 
+; Description: About page
 ;===========================================
 */
-
 
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-auth-layout',
-  templateUrl: './auth-layout.component.html',
-  styleUrls: ['./auth-layout.component.css']
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.css']
 })
-export class AuthLayoutComponent implements OnInit {
+export class AboutComponent implements OnInit {
 
   constructor() { }
 

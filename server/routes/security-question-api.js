@@ -18,14 +18,14 @@ const router = express.Router();
 /**
  * FindAll
  */
-router.get('/', function (req, res, next) {
-  SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function(err, securityQuestions) {
+router.get('/api/security-questions', function (req, res, next) {
+  SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function(err, SecurityQuestion) {
     if (err) {
       console.log(err);
       return next(err);
     } else {
-      console.log(securityQuestions);
-      res.json(securityQuestions);
+      console.log(SecurityQuestion);
+      res.json(SecurityQuestion);
     }
   })
 });
@@ -53,7 +53,7 @@ router.post('/', function (req, res, next) {
     text: req.body.text
   };
 
-  SecurityQuestion.create(sq, function (err, securityQuestion) {
+  securityQuestion.create(sq, function (err, securityQuestion) {
     if (err) {
       console.log(err);
       return next(err);
@@ -120,6 +120,31 @@ router.delete('/:id', function (req, res, next) {
       }
     }
   });
+});
+
+/**
+ * FindSecurityQuestionsByIds
+ */
+router.post('/find-by-ids', function (req, res, next) {
+  const question1 = req.body.question1;
+  const question2 = req.body.question2;
+  const question3 = req.body.question3;
+
+  SecurityQuestion.find({
+    $or: [
+      {'_id': question1},
+      {'_id': question2},
+      {'_id': question3}
+    ]
+  }).exec(function (err, securityQuestions) {
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(securityQuestions);
+      res.json(securityQuestions);
+    }
+  })
 });
 
 module.exports = router;
