@@ -51,42 +51,6 @@ router.get('/', function(req, res, next){
  })
 
 /**
- * API: CreateUser API
- * Returns: Newly Created User file
- */
-
-router.post('/api/users', function(req, res){
-  //sets up hashed passwords using bcrypt
-  const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-  //sets up user file fields
-  const newUser = new User({
-    userId: req.body.userId,
-    username: req.body.username,
-    password: hashedPassword,
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    phoneNumber: req.body.phoneNumber,
-    address: req.body.address,
-    securityQuestions: req.body.securityQuestions,
-    email: req.body.email,
-    isDisabled: false,
-    role: req.body.role,
-    date_created: new Date(),
-    date_modified: ""
-  });
-  //saves the new user unless there is an error
-  newUser.save(function(err, newUser){
-    if(err){
-      console.log(err);
-      res.status(400).send("Unable to save user.")
-    } else {
-      console.log(newUser);
-      res.json(newUser);
-    }
-  });
-});
-
-/**
  * API: Update User
  * Returns: Updated User File
  */

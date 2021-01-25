@@ -2,21 +2,23 @@
 
   <!-- navigation -->
   <nav fxFlex>
-    <mat-toolbar>
+    <mat-toolbar class = "header">
       <!-- navbar container -->
       <div class="navbar-container">
         <!-- logo -->
-        <button class="logo" routerLink="/" mat-button>BCRS</button>
+        <img routerLink = '/' class = "logoImg" src = "../../../assets/bob.png">
+        <h1 routerLink = '/' class = "title">Bob's Computer Repair Shop</h1>
+        <a class = "manage" routerLink = "/user-list">Manage Users</a>
 
-        <button class="navbar-link" routerLink="/" mat-button>Home</button>
-        <button class="navbar-link" mat-button>About</button>
-        <button class = "navbar-link" mat-button routerLink = "/user-list">Manage Users</button>
+        <a class="home" routerLink="/">Home</a>
+        <a class="about" routerLink = "/about">About</a>
+
       </div>
 
     </mat-toolbar>
   </nav>
 
-  <!-- main content -->
+  <!--main content-->
   <div fxFlex>
     <main class="main-content" fxFlex="100%;">
       <router-outlet></router-outlet>

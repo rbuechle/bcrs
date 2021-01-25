@@ -19,6 +19,13 @@ import {SecurityQuestionDetailsComponent} from './pages/security-question-detail
 import {SecurityQuestionCreateComponent} from './pages/security-question-create/security-question-create.component';
 import {AuthLayoutComponent} from './shared/auth-layout/auth-layout.component';
 import {SigninComponent} from './pages/signin/signin.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { VerifyUsernameFormComponent } from './pages/verify-username-form/verify-username-form.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { VerifySecurityQuestionsComponent } from './pages/verify-security-questions/verify-security-questions.component';
 
 export const AppRoutes: Routes = [
   {
@@ -27,8 +34,15 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent,
-        canActivate: [SessionGuard]
+        component: HomeComponent
+      },
+      {
+        path: 'contact',
+        component: ContactComponent
+      },
+      {
+        path: 'about',
+        component: ContactComponent
       },
       {
         path: 'users',
@@ -64,7 +78,35 @@ export const AppRoutes: Routes = [
       {
         path: 'signin',
         component: SigninComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
+      },
+      {
+        path: 'forgot',
+        component: VerifyUsernameFormComponent
+      },
+      {
+        path: 'verify-security-questions',
+        component: VerifySecurityQuestionsComponent
+      },
+      {
+        path: 'reset-password',
+        component: ResetPasswordComponent
+      },
+      {
+        path: '404',
+        component: NotFoundComponent
+      },
+      {
+        path: '500',
+        component: ErrorComponent
       }
     ]
   },
+  {
+    path: '**',
+    redirectTo: 'session/404'
+  }
 ];

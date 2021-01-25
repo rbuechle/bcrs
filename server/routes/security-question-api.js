@@ -18,14 +18,14 @@ const router = express.Router();
 /**
  * FindAll
  */
-router.get('/', function (req, res, next) {
-  SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function(err, securityQuestions) {
+router.get('/api/security-questions', function (req, res, next) {
+  SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function(err, SecurityQuestion) {
     if (err) {
       console.log(err);
       return next(err);
     } else {
-      console.log(securityQuestions);
-      res.json(securityQuestions);
+      console.log(SecurityQuestion);
+      res.json(SecurityQuestion);
     }
   })
 });
@@ -53,7 +53,7 @@ router.post('/', function (req, res, next) {
     text: req.body.text
   };
 
-  SecurityQuestion.create(sq, function (err, securityQuestion) {
+  securityQuestion.create(sq, function (err, securityQuestion) {
     if (err) {
       console.log(err);
       return next(err);
