@@ -1,4 +1,12 @@
-
+/*
+============================================
+; Title:  user-api.js
+; Author: Professor Krasso
+; Date:  1-22-21
+; Modified by: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
+; Description: CRUD APIs for Users Security Questions
+;===========================================
+*/
 // require statements
 const express = require('express');
 const SecurityQuestion = require('../db-models/security-question');
@@ -8,6 +16,7 @@ const router = express.Router();
 
 /**
  * FindAll
+ * Security Questions 
  */
 router.get('/', function (req, res, next) {
   SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function(err, securityQuestions) {
@@ -23,6 +32,7 @@ router.get('/', function (req, res, next) {
 
 /**
  * FindById
+ * Find By Id - security questions
  */
 router.get('/:id', function (req, res, next) {
   SecurityQuestion.findOne({'_id': req.params.id}, function (err, securityQuestion) {
@@ -38,6 +48,7 @@ router.get('/:id', function (req, res, next) {
 
 /**
  * CreateSecurityQuestion
+ * Create security questions here
  */
 router.post('/', function (req, res, next) {
   let sq = {
@@ -57,6 +68,7 @@ router.post('/', function (req, res, next) {
 
 /**
  * UpdateSecurityQuestion
+ * update security questions
  */
 router.put('/:id', function (req, res, next) {
   SecurityQuestion.findOne({'_id': req.params.id}, function (err, securityQuestion) {
