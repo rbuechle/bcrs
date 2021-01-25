@@ -39,6 +39,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { RegisterComponent } from './pages/register/register.component';
 import { MatSelectModule } from '@angular/material/select';
+import { ContactComponent } from './pages/contact/contact.component';
+import { VerifyUsernameFormComponent } from './pages/verify-username-form/verify-username-form.component';
+import { VerifySecurityQuestionsComponent } from './pages/verify-security-questions/verify-security-questions.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ErrorComponent } from './pages/error/error.component';
 
 
 @NgModule({
@@ -55,7 +61,13 @@ import { MatSelectModule } from '@angular/material/select';
     SecurityQuestionDeleteDialogComponent,
     UserDeleteDialogComponent,
     SigninComponent,
-    RegisterComponent
+    RegisterComponent,
+    ContactComponent,
+    VerifyUsernameFormComponent,
+    VerifySecurityQuestionsComponent,
+    ResetPasswordComponent,
+    NotFoundComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

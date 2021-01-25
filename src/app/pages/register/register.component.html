@@ -1,70 +1,101 @@
 <div class = "register">
-  <mat-card>
+  <mat-card class = "mat-elevation-z8">
     <mat-card-title>User Registration</mat-card-title>
 
-      <form>
-        <div class = "form">
+    <mat-card *ngIf = "errorMessage" class = "mat-elevation=z0">
+      <mat-card-content>
+        <div class = "msg-err">
+          {{errorMessage}}
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+      <form [formGroup] = 'registrationForm'>
+        <mat-card-content formGroupName = "contactInfo" class = "form">
           <mat-form-field appearance = "outline">
             <mat-label>First Name</mat-label>
-            <input matInput placeholder = "First Name">
+            <input matInput fromControlName = "firstname" placeholder = "First Name">
           </mat-form-field>
 
           <mat-form-field appearance = "outline">
             <mat-label>Last Name</mat-label>
-            <input matInput placeholder = "Last Name">
+            <input matInput formControlName = "lastname" placeholder = "Last Name">
           </mat-form-field>
 
           <mat-form-field appearance = "outline">
             <mat-label>Address</mat-label>
-            <input matInput placeholder = "Address">
+            <input matInput formControlName = "address" placeholder = "Address">
           </mat-form-field>
 
           <mat-form-field appearance = "outline">
             <mat-label>Phone Number</mat-label>
-            <input matInput placeholder = "Phone Number">
+            <input matInput formControlName = "phoneNumber" placeholder = "Phone Number">
           </mat-form-field>
 
           <mat-form-field appearance = "outline">
             <mat-label>E-mail</mat-label>
-            <input matInput placeholder = "E-mail">
+            <input matInput formControlName ="email" placeholder = "E-mail">
           </mat-form-field>
-
+        </mat-card-content>
+        <mat-card-content formGroupName = "credentials">
           <mat-form-field appearance = "outline">
             <mat-label>Username</mat-label>
-            <input matInput placeholder = "Username">
+            <input matInput formControlName = "username" placeholder = "Username">
           </mat-form-field>
 
           <mat-form-field appearance = "outline">
             <mat-label>Password</mat-label>
-            <input matInput placeholder = "Password">
+            <input matInput formControlName = "password" placeholder = "Password">
           </mat-form-field>
-
+          <!--
           <mat-form-field appearance = "outline">
             <mat-label>Verify Password</mat-label>
             <input matInput placeholder = "Verify Password">
           </mat-form-field>
-        </div>
+          -->
+        </mat-card-content>
 
-        <div>
+        <mat-card-content formGroupName = "securityQuestions">
           <mat-form-field appearance = "outline">
-            <mat-label>Select Security Question</mat-label>
-            <mat-select class = "sec-questions">
-              <mat-option value = "What is your mother's maiden name?">What is your mother's maiden name?</mat-option>
-              <mat-option value = "What is your father's middle name?">What is your father's middle name?</mat-option>
-              <mat-option value = "In what city did you meet your significant other?">In what city did you meet your significant other?</mat-option>
-              <mat-option value = "What is the name of your childhood best friend?">What is the name of your childhood best friend?</mat-option>
-              <mat-option value = "What street did you live on in 3rd grade?">What street did you live on in 3rd grade?</mat-option>
-            </mat-select>
-          </mat-form-field>
+              <mat-label>Select Security Question</mat-label>
+              <mat-select formControlName = "securityQuestion1">
+                <mat-option *ngFor = "let question of securityQuestions" [value] = "question._id">{{question.text}}</mat-option>
+              </mat-select>
+            </mat-form-field>
 
-          <mat-form-field appearance = "outline">
-            <mat-label>Answer</mat-label>
-            <input class = "answer" matInput placeholder = "Answer">
-          </mat-form-field>
+            <mat-form-field appearance = "outline">
+              <mat-label>Answer</mat-label>
+              <input matInput formControlName = "sq1Answer" placeholder = "Answer">
+            </mat-form-field>
 
-        </div>
+            <mat-form-field appearance = "outline">
+              <mat-label>Select Security Question</mat-label>
+              <mat-select formControlName = "securityQuestion2">
+                <mat-option *ngFor = "let question of securityQuestions" [value] = "question._id">{{question.text}}</mat-option>
+              </mat-select>
+            </mat-form-field>
 
+            <mat-form-field appearance = "outline">
+              <mat-label>Answer</mat-label>
+              <input matInput formControlName = "sq2Answer" placeholder = "Answer">
+            </mat-form-field>
+
+            <mat-form-field appearance = "outline">
+              <mat-label>Select Security Question</mat-label>
+              <mat-select formControlName = "securityQuestion3">
+                <mat-option *ngFor = "let question of securityQuestions" [value] = "question._id">{{question.text}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance = "outline">
+              <mat-label>Answer</mat-label>
+              <input matInput formControlName = "sq3Answer" placeholder = "Answer">
+            </mat-form-field>
+
+        </mat-card-content>
+        <button class = "submit" mat-button (click) = "register(registrationForm.value)" [disabled] = "!registrationForm.valid" type = "submit" >Submit</button>
+        <button routerLink = "/session/signin">Cancel</button>
       </form>
-      <button class = "submit" mat-button>Submit</button>
+
   </mat-card>
 </div>
