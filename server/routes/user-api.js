@@ -8,63 +8,60 @@
 ;===========================================
 */
 
-const express = require('express');
-const User = require('../db-models/user');
-const router = express.Router();
-const bcrypt = require('bcrypt');
+const express = require('express')
+const User = require('../db-models/user')
+const router = express.Router()
 
 /**
  * API: FindAllUsers API
  * Returns: Array of users
  */
 
-router.get('/', function(req, res, next){
-  //finds users and adds them to a returned array
-  User.find({}, function(err, Users){
-     if(err){
-       console.log(err);
-       return next(err);
-     } else {
-       console.log(Users);
-       res.json(Users);
-     }
-   })
- })
+router.get('/', function (req, res, next) {
+  // finds users and adds them to a returned array
+  User.find({}, function (err, Users) {
+    if (err) {
+      console.log(err)
+      return next(err)
+    } else {
+      console.log(Users)
+      res.json(Users)
+    }
+  })
+})
 
 /*
  API: FindUserById API
  Returns: User File
 */
 
-router.get('/api/users/:userId', function(req, res, next) {
-  //finds one user using the Id provided and returns the user file
-  User.findOne({'userId': req.params.userId},
-  function(err, User){
-    if(err) {
-      console.log(err);
-      return next(err);
-    } else{
-      console.log(User);
-      res.json(User);
-    }
-  })
-});
-
-
+router.get('/api/users/:userId', function (req, res, next) {
+  // finds one user using the Id provided and returns the user file
+  User.findOne({ userId: req.params.userId },
+    function (err, User) {
+      if (err) {
+        console.log(err)
+        return next(err)
+      } else {
+        console.log(User)
+        res.json(User)
+      }
+    })
+})
 
 /**
  * API: Update User
  * Returns: Updated User File
  */
-router.put('/api/users/:userId', function(req, res, next){
-  //finds the specified User
-  User.findOne({'userId': req.params.userId}, function(err, User){
+router.put('/api/users/:userId', function (req, res, next) {
+  // finds the specified User
+  User.findOne({ userId: req.params.userId }, function (err, User) {
     if (err) {
-      console.log(err);
-      return next(err);
+      console.log(err)
+      return next(err)
     } else {
-      console.log(User);
-      //sets the new user information and sets date modified to the current date
+      console.log(User)
+      // sets the new user information and sets date modified to the current date
       User.set({
         userId: req.body.userId,
         username: req.body.username,
@@ -78,34 +75,34 @@ router.put('/api/users/:userId', function(req, res, next){
         isDisabled: req.body.isDisabled,
         role: req.body.role,
         date_modified: new Date()
-      });
-      //saves the information and returns the file
-      User.save(function(err, User){
+      })
+      // saves the information and returns the file
+      User.save(function (err, User) {
         if (err) {
-          console.log(err);
-          return next(err);
+          console.log(err)
+          return next(err)
         } else {
-          console.log(User);
-          res.json(User);
+          console.log(User)
+          res.json(User)
         }
       })
     }
   })
-});
+})
 
 /**
  * API: Delete User
  * Return: Updated User File
 */
-router.put('/api/users/:userId', function(req, res, next){
-  //finds the specified User
-  User.findOne({'userId': req.params.userId}, function(err, User){
+router.put('/api/users/:userId', function (req, res, next) {
+  // finds the specified User
+  User.findOne({ userId: req.params.userId }, function (err, User) {
     if (err) {
-      console.log(err);
-      return next(err);
+      console.log(err)
+      return next(err)
     } else {
-      console.log(User);
-      //sets the isDisabled flag to true and sets date modified as the current date
+      console.log(User)
+      // sets the isDisabled flag to true and sets date modified as the current date
       User.set({
         userId: req.body.userId,
         username: req.body.username,
@@ -119,35 +116,35 @@ router.put('/api/users/:userId', function(req, res, next){
         isDisabled: true,
         role: req.body.role,
         date_modified: new Date()
-      });
-      //saves the information and returns the file
-      User.save(function(err, User){
+      })
+      // saves the information and returns the file
+      User.save(function (err, User) {
         if (err) {
-          console.log(err);
-          return next(err);
+          console.log(err)
+          return next(err)
         } else {
-          console.log(User);
-          res.json(User);
+          console.log(User)
+          res.json(User)
         }
       })
     }
   })
-});
+})
 
 /**
  * FindSelectedSecurityQuestions
  */
 router.get('/:username/security-questions', function (req, res, next) {
-  User.findOne({'username': req.params.username}, function (err, user) {
+  User.findOne({ username: req.params.username }, function (err, user) {
     if (err) {
-      console.log(err);
-      return next(err);
+      console.log(err)
+      return next(err)
     } else {
-      console.log(user);
-      res.json(user.securityQuestions);
+      console.log(user)
+      res.json(user.securityQuestions)
     }
   })
-});
+})
 
-//exports the APIs to the router module
-module.exports = router;
+// exports the APIs to the router module
+module.exports = router
