@@ -1,9 +1,10 @@
 /*
 ============================================
-; Title:  session.guard.ts
+; Title:  security-question-list.component.ts
 ; Author: Professor Krasso
-; Date:   3 December 2019
-; Description: Session guard
+; Date:   17 January 2021
+; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
+; Description: Using Angular auth guard to restrict application access
 ;===========================================
 */
 

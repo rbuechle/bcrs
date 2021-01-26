@@ -3,7 +3,7 @@
 ; Title:  user-api.js
 ; Author: Professor Krasso
 ; Date:  1-17-21
-; Modified by: Rochelle Markham
+; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
 ; Description: CRUD APIs for Users
 ;===========================================
 */
@@ -12,6 +12,24 @@ const express = require('express');
 const User = require('../db-models/user');
 const router = express.Router();
 const bcrypt = require('bcrypt');
+
+/**
+ * API: FindAllUsers API
+ * Returns: Array of users
+ */
+
+router.get('/', function(req, res, next){
+  //finds users and adds them to a returned array
+  User.find({}, function(err, Users){
+     if(err){
+       console.log(err);
+       return next(err);
+     } else {
+       console.log(Users);
+       res.json(Users);
+     }
+   })
+ })
 
 /*
  API: FindUserById API
@@ -32,23 +50,7 @@ router.get('/api/users/:userId', function(req, res, next) {
   })
 });
 
-/**
- * API: FindAllUsers API
- * Returns: Array of users
- */
 
-router.get('/', function(req, res, next){
-  //finds users and adds them to a returned array
-  User.find({}, function(err, Users){
-     if(err){
-       console.log(err);
-       return next(err);
-     } else {
-       console.log(Users);
-       res.json(Users);
-     }
-   })
- })
 
 /**
  * API: Update User
@@ -128,6 +130,21 @@ router.put('/api/users/:userId', function(req, res, next){
           res.json(User);
         }
       })
+    }
+  })
+});
+
+/**
+ * FindSelectedSecurityQuestions
+ */
+router.get('/:username/security-questions', function (req, res, next) {
+  User.findOne({'username': req.params.username}, function (err, user) {
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(user);
+      res.json(user.securityQuestions);
     }
   })
 });

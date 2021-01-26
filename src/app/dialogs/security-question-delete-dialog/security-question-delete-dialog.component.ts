@@ -3,6 +3,7 @@
 ; Title:  security-question-delete-dialog-component.ts
 ; Author: Professor Krasso
 ; Date:   3 December 2019
+; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
 ; Description: Material dialog for deleting security questions.
 ;===========================================
 */
