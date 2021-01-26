@@ -1,10 +1,10 @@
 /*
 ============================================
-; Title:  security-question-list.component.ts
+; Title:  user-api.js
 ; Author: Professor Krasso
-; Date:   17 January 2021
-; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
-; Description: App Module
+; Date:  1-22-21
+; Modified by: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
+; Description: App module
 ;===========================================
 */
 
@@ -109,3 +109,4 @@ import { AppRoutes } from './app.routing';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

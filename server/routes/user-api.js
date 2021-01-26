@@ -2,8 +2,8 @@
 ============================================
 ; Title:  user-api.js
 ; Author: Professor Krasso
-; Date:  1-17-21
-; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
+; Date:  1-22-21
+; Modified by: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
 ; Description: CRUD APIs for Users
 ;===========================================
 */
@@ -11,21 +11,56 @@
 const express = require('express')
 const User = require('../db-models/user')
 const router = express.Router()
+const bcrypt = require('bcryptjs')
 
 /**
  * API: FindAllUsers API
  * Returns: Array of users
  */
-
 router.get('/', function (req, res, next) {
   // finds users and adds them to a returned array
-  User.find({}, function (err, Users) {
+  User.find({}).where('isDisabled').equals(false).exec(function (err, users) {
     if (err) {
       console.log(err)
       return next(err)
     } else {
-      console.log(Users)
-      res.json(Users)
+      console.log(users)
+      res.json(users)
+    }
+  })
+})
+
+/**
+ * API: CreateUser API
+ * Returns: Newly Created User file
+ */
+router.post('/api/users', function (req, res) {
+  // sets up hashed passwords using bcrypt
+  const hashedPassword = bcrypt.hashSync(req.body.password, 10)
+  // sets up user file fields
+  const newUser = new User({
+    userId: req.body.userId,
+    username: req.body.username,
+    password: hashedPassword,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    phoneNumber: req.body.phoneNumber,
+    address: req.body.address,
+    securityQuestions: req.body.securityQuestions,
+    email: req.body.email,
+    isDisabled: false,
+    role: req.body.role,
+    date_created: new Date(),
+    date_modified: ''
+  })
+  // saves the new user unless there is an error
+  newUser.save(function (err, newUser) {
+    if (err) {
+      console.log(err)
+      res.status(400).send('Unable to save user.')
+    } else {
+      console.log(newUser)
+      res.json(newUser)
     }
   })
 })
@@ -132,6 +167,22 @@ router.put('/api/users/:userId', function (req, res, next) {
 })
 
 /**
+ * FindSelectedSecurityQuestions
+ */
+router.get('/:username/security-questions', function (req, res, next) {
+  User.findOne({ username: req.params.username }, function (err, user) {
+    if (err) {
+      console.log(err)
+      return next(err)
+    } else {
+      console.log(user)
+      res.json(user.securityQuestions)
+    }
+  })
+})
+
+/**
+ * API -Find selected security questions
  * FindSelectedSecurityQuestions
  */
 router.get('/:username/security-questions', function (req, res, next) {

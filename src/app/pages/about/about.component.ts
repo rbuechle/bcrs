@@ -2,11 +2,10 @@
 ; Title:  about.component.ts
 ; Author: Professor Krasso
 ; Date:   23 January 2021
-; Modified By: King Major
+; Modified by: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
 ; Description: About page
 ;===========================================
 */
-
 
 import { Component, OnInit } from '@angular/core';
 

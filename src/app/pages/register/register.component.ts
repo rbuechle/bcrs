@@ -1,5 +1,5 @@
 /*
-============================================
+;===========================================
 ; Title:  register.component.ts
 ; Author: Professor Krasso
 ; Date:   17 January 2021

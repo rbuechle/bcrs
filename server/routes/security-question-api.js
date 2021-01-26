@@ -1,6 +1,6 @@
 /*
 ============================================
-; Title:  security-questions.js
+; Title:  security-question-api.js
 ; Author: Professor Krasso
 ; Date:   17 January 2021
 ; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
@@ -123,6 +123,32 @@ router.delete('/:id', function (req, res, next) {
 })
 
 /**
+ * FindSecurityQuestionsByIds
+ */
+router.post('/find-by-ids', function (req, res, next) {
+  const question1 = req.body.question1
+  const question2 = req.body.question2
+  const question3 = req.body.question3
+
+  SecurityQuestion.find({
+    $or: [
+      { _id: question1 },
+      { _id: question2 },
+      { _id: question3 }
+    ]
+  }).exec(function (err, securityQuestions) {
+    if (err) {
+      console.log(err)
+      return next(err)
+    } else {
+      console.log(securityQuestions)
+      res.json(securityQuestions)
+    }
+  })
+})
+
+/**
+ * API - Find Security Questions by Id's
  * FindSecurityQuestionsByIds
  */
 router.post('/find-by-ids', function (req, res, next) {
