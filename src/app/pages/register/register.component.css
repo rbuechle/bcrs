@@ -1,0 +1,45 @@
+mat-card-title{
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  font-size: 30px;
+}
+
+mat-card{
+  margin: 0 auto;
+  width: 55%;
+  margin-top: 15%;
+}
+
+mat-form-field{
+  width: 425px;
+  padding: 2px;
+}
+
+mat-select{
+  width: 425px;
+  padding: 2px;
+}
+
+.submit{
+  width: 100%;
+  background-color: rgb(11,32,39);
+  color: white;
+}
+
+.register{
+  margin-top: 100px;
+  top: 10%;
+}
+
+.form{
+  columns: 2;
+}
+
+.sec-questions{
+  margin-right: 5%;
+}
+
+.answer{
+  margin-left: 5%;
+}
