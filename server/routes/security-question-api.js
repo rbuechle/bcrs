@@ -8,169 +8,144 @@
 ;===========================================
 */
 
+
 // require statements
-const express = require('express')
-const SecurityQuestion = require('../db-models/security-question')
+const express = require('express');
+const SecurityQuestion = require('../db-models/security-question');
 
 // configurations
-const router = express.Router()
+const router = express.Router();
 
 /**
  * FindAll
  */
 router.get('/api/security-questions', function (req, res, next) {
-  SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function (err, securityQuestion) {
+  SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function(err, SecurityQuestion) {
     if (err) {
-      console.log(err)
-      return next(err)
+      console.log(err);
+      return next(err);
     } else {
-      console.log(securityQuestion)
-      res.json(securityQuestion)
+      console.log(SecurityQuestion);
+      res.json(SecurityQuestion);
     }
   })
-})
+});
 
 /**
  * FindById
  */
 router.get('/:id', function (req, res, next) {
-  SecurityQuestion.findOne({ _id: req.params.id }, function (err, securityQuestion) {
+  SecurityQuestion.findOne({'_id': req.params.id}, function (err, securityQuestion) {
     if (err) {
-      console.log(err)
-      return next(err)
+      console.log(err);
+      return next(err);
     } else {
-      console.log(securityQuestion)
-      res.json(securityQuestion)
+      console.log(securityQuestion);
+      res.json(securityQuestion);
     }
   })
-})
+});
 
 /**
  * CreateSecurityQuestion
  */
 router.post('/', function (req, res, next) {
-  const sq = {
+  let sq = {
     text: req.body.text
-  }
+  };
 
-  SecurityQuestion.create(sq, function (err, securityQuestion) {
+  securityQuestion.create(sq, function (err, securityQuestion) {
     if (err) {
-      console.log(err)
-      return next(err)
+      console.log(err);
+      return next(err);
     } else {
-      console.log(securityQuestion)
-      res.json(securityQuestion)
+      console.log(securityQuestion);
+      res.json(securityQuestion);
     }
   })
-})
+});
 
 /**
  * UpdateSecurityQuestion
  */
 router.put('/:id', function (req, res, next) {
-  SecurityQuestion.findOne({ _id: req.params.id }, function (err, securityQuestion) {
+  SecurityQuestion.findOne({'_id': req.params.id}, function (err, securityQuestion) {
     if (err) {
-      console.log(err)
-      return next(err)
+      console.log(err);
+      return next(err);
     } else {
-      console.log(securityQuestion)
+      console.log(securityQuestion);
 
       securityQuestion.set({
         text: req.body.text
-      })
+      });
 
       securityQuestion.save(function (err, securityQuestion) {
         if (err) {
-          console.log(err)
-          return next(err)
+          console.log(err);
+          return next(err);
         } else {
-          console.log(securityQuestion)
-          res.json(securityQuestion)
+          console.log(securityQuestion);
+          res.json(securityQuestion);
         }
       })
     }
   })
-})
+});
 
 /**
  * DeleteSecurityQuestion
  */
 router.delete('/:id', function (req, res, next) {
-  SecurityQuestion.findOne({ _id: req.params.id }, function (err, securityQuestion) {
+  SecurityQuestion.findOne({'_id': req.params.id}, function(err, securityQuestion) {
     if (err) {
-      console.log(err)
-      return next(err)
+      console.log(err);
+      return next(err);
     } else {
-      console.log(securityQuestion)
+      console.log(securityQuestion);
 
       if (securityQuestion) {
         securityQuestion.set({
           isDisabled: true
-        })
+        });
 
-        securityQuestion.save(function (err, savedSecurityQuestion) {
+        securityQuestion.save(function(err, savedSecurityQuestion) {
           if (err) {
-            console.log(err)
-            return next(err)
+            console.log(err);
+            return next(err);
           } else {
-            console.log(savedSecurityQuestion)
-            res.json(savedSecurityQuestion)
+            console.log(savedSecurityQuestion);
+            res.json(savedSecurityQuestion);
           }
         })
       }
     }
-  })
-})
+  });
+});
 
 /**
  * FindSecurityQuestionsByIds
  */
 router.post('/find-by-ids', function (req, res, next) {
-  const question1 = req.body.question1
-  const question2 = req.body.question2
-  const question3 = req.body.question3
+  const question1 = req.body.question1;
+  const question2 = req.body.question2;
+  const question3 = req.body.question3;
 
   SecurityQuestion.find({
     $or: [
-      { _id: question1 },
-      { _id: question2 },
-      { _id: question3 }
+      {'_id': question1},
+      {'_id': question2},
+      {'_id': question3}
     ]
   }).exec(function (err, securityQuestions) {
     if (err) {
-      console.log(err)
-      return next(err)
+      console.log(err);
+      return next(err);
     } else {
-      console.log(securityQuestions)
-      res.json(securityQuestions)
+      console.log(securityQuestions);
+      res.json(securityQuestions);
     }
   })
-})
+});
 
-/**
- * API - Find Security Questions by Id's
- * FindSecurityQuestionsByIds
- */
-router.post('/find-by-ids', function (req, res, next) {
-  const question1 = req.body.question1
-  const question2 = req.body.question2
-  const question3 = req.body.question3
-
-  SecurityQuestion.find({
-    $or: [
-      { _id: question1 },
-      { _id: question2 },
-      { _id: question3 }
-    ]
-  }).exec(function (err, securityQuestions) {
-    if (err) {
-      console.log(err)
-      return next(err)
-    } else {
-      console.log(securityQuestions)
-      res.json(securityQuestions)
-    }
-  })
-})
-
-module.exports = router
+module.exports = router;

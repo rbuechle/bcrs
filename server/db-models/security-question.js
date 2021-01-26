@@ -8,12 +8,12 @@
 ===========================================
 */
 
-const mongoose = require('mongoose')
-// security questions go here
+const mongoose = require('mongoose');
+//security questions go here
 
-const securityQuestionSchema = mongoose.Schema({
-  text: { type: String },
-  isDisabled: { type: Boolean, default: false }
-})
+let securityQuestionSchema = mongoose.Schema({
+  text:       {type: String},
+  isDisabled: {type: Boolean, default: false}
+});
 
-module.exports = mongoose.model('SecurityQuestion', securityQuestionSchema)
+module.exports = mongoose.model('SecurityQuestion', securityQuestionSchema);
