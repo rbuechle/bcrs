@@ -35,7 +35,8 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [SessionGuard]
       },
       {
         path: 'contact',
@@ -78,11 +79,11 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: 'signin',
-        component: SigninComponent
+        component: SigninComponent,
       },
       {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
       },
       {
         path: 'forgot',
