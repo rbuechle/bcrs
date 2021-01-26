@@ -35,15 +35,18 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [SessionGuard]
       },
       {
         path: 'contact',
-        component: ContactComponent
+        component: ContactComponent,
+        canActivate: [SessionGuard]
       },
       {
         path: 'about',
-        component: AboutComponent
+        component: AboutComponent,
+        canActivate: [SessionGuard]
       },
       {
         path: 'users',
@@ -68,6 +71,11 @@ export const AppRoutes: Routes = [
       {
         path: 'security-questions/create/new',
         component: SecurityQuestionCreateComponent,
+        canActivate: [SessionGuard]
+      },
+      {
+        path: 'about',
+        component: AboutComponent,
         canActivate: [SessionGuard]
       },
     ]
