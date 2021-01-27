@@ -1,3 +1,12 @@
+/*
+============================================
+; Title:  security-question-api.js
+; Author: Professor Krasso
+; Date:   17 January 2021
+; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
+; Description: Model for MongoDB SecurityQuestions collection
+;===========================================
+*/
 
 // require statements
 const express = require('express');
@@ -9,14 +18,14 @@ const router = express.Router();
 /**
  * FindAll
  */
-router.get('/api/security-questions', function (req, res, next) {
-  SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function(err, SecurityQuestion) {
+router.get('/', function (req, res, next) {
+  SecurityQuestion.find({}).where('isDisabled').equals(false).exec(function(err, securityQuestions) {
     if (err) {
       console.log(err);
       return next(err);
     } else {
-      console.log(SecurityQuestion);
-      res.json(SecurityQuestion);
+      console.log(securityQuestions);
+      res.json(securityQuestions);
     }
   })
 });
@@ -44,7 +53,7 @@ router.post('/', function (req, res, next) {
     text: req.body.text
   };
 
-  securityQuestion.create(sq, function (err, securityQuestion) {
+  SecurityQuestion.create(sq, function (err, securityQuestion) {
     if (err) {
       console.log(err);
       return next(err);
@@ -111,6 +120,32 @@ router.delete('/:id', function (req, res, next) {
       }
     }
   });
+});
+
+/**
+ * API - Find Security Questions by Id's
+ * FindSecurityQuestionsByIds
+ */
+router.post('/find-by-ids', function (req, res, next) {
+  const question1 = req.body.question1;
+  const question2 = req.body.question2;
+  const question3 = req.body.question3;
+
+  SecurityQuestion.find({
+    $or: [
+      {'_id': question1},
+      {'_id': question2},
+      {'_id': question3}
+    ]
+  }).exec(function (err, securityQuestions) {
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(securityQuestions);
+      res.json(securityQuestions);
+    }
+  })
 });
 
 module.exports = router;

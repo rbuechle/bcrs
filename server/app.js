@@ -58,7 +58,7 @@ mongoose.connect(conn, {
  * API(s)
  */
 app.use('/api/users', UserApi);
-//app.use('/api/session', SessionApi);
+app.use('/api/session', SessionApi);
 app.use('/api/security-questions', SecurityQuestionApi);
 
 /**

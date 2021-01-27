@@ -1,3 +1,12 @@
+/*
+============================================
+; Title:  contact.component.ts
+; Author: Professor Krasso
+; Date:   3 December 2019
+; Description: Contact page
+;===========================================
+*/
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +18,7 @@ export class ContactComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

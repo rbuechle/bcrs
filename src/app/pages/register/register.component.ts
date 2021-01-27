@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
 
 
   constructor(private http: HttpClient, private router: Router, private fb: FormBuilder, private cookieService: CookieService ) {
-    this.http.get('api/security-questions').subscribe(res => {
+    this.http.get('/api/security-questions').subscribe(res => {
       this.securityQuestions = res;
     }, err => {
       console.log(err);
