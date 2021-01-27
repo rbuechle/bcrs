@@ -1,13 +1,3 @@
-/*
-============================================
-; Title:  session-api.js
-; Author: Professor Krasso
-; Date:   16 January 2021
-; Modified By: Becca Buechle, Rochelle Markham, Rhonda Rivas, King Major
-; Description: APIs for managing Session Users
-;===========================================
-*/
-
 // require statements
 const express = require('express');
 const User = require('../db-models/user');
@@ -88,10 +78,10 @@ router.post('/register', function(req, res, next){
       //if the user doesn't already exist, create new user
       if (!user) {
         //sets up hashed passwords using bcrypt
-        const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+        const hashedPassword = bcrypt.hashSync(req.body.password, saltRounds);
         //sets up user file fields
         const newUser = new User({
-          userId: req.body.userId,
+
           username: req.body.username,
           password: hashedPassword,
           firstname: req.body.firstname,
@@ -103,10 +93,9 @@ router.post('/register', function(req, res, next){
           isDisabled: false,
           role: req.body.role,
           date_created: new Date(),
-          date_modified: ""
         });
         //save new User
-        newUser.create(function(err, newUser){
+        User.create(newUser, function(err, newUser){
           if(err){
             console.log(err);
             return next(err);
@@ -125,6 +114,7 @@ router.post('/register', function(req, res, next){
       }
     }
 })});
+
 
 /**
  * API: Verify User
@@ -221,4 +211,3 @@ router.post('/users/:username/reset-password', function (req, res, next) {
 });
 
 module.exports = router;
-
